@@ -1,9 +1,10 @@
 #!groovy
 
 pipeline {
-
+  environment {
     registry = "gcr.io/cloud-week/"
     registryCredential = 'cloud-week-push-pull-registry'
+  }
 
   agent {
     kubernetes {

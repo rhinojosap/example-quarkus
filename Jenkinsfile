@@ -3,7 +3,7 @@
 pipeline {
   agent {
     kubernetes {
-      label 'spring-petclinic-demo'
+      label 'cloud-week-test'
       defaultContainer 'jnlp'
       yaml """
 apiVersion: v1

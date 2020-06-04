@@ -55,6 +55,7 @@ spec:
         //myImg = docker.build 'hello-image:snapshot-1'
             sh '''
             docker build -t hello-image:snapshot-1 .
+            docker push hello-image:snapshot-1
             '''
         }
       

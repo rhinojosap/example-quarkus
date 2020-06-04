@@ -1,6 +1,10 @@
 #!groovy
 
 pipeline {
+
+    registry = "gcr.io/cloud-week/"
+    registryCredential = 'cloud-week-push-pull-registry'
+
   agent {
     kubernetes {
       label 'spring-petclinic-demo'
@@ -51,7 +55,7 @@ spec:
         // build our docker image
         //myImg = docker.build 'hello-image:snapshot-1'
             sh '''
-            docker build -t hello-image:snapshot-1 .
+            docker build -t registry + "hello-image:snapshot-${env.BUILD_ID}" .
             '''
         }
       

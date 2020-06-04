@@ -3,7 +3,7 @@
 pipeline {
   agent {
     kubernetes {
-      label 'cloud-week-test'
+      label 'spring-petclinic-demo'
       defaultContainer 'jnlp'
       yaml """
 apiVersion: v1
@@ -52,7 +52,6 @@ spec:
         //myImg = docker.build 'hello-image:snapshot-1'
             sh '''
             docker build -t hello-image:snapshot-1 .
-            docker push hello-image:snapshot-1
             '''
         }
       

@@ -22,7 +22,7 @@ spec:
     tty: true
     volumeMounts:
       - mountPath: "/root/.m2"
-        name: pvc-jenkins-slave-kubernetes-maven-quarkus
+        name: m2
   - name: docker
     image: docker:latest
     command:
@@ -30,14 +30,14 @@ spec:
     tty: true
     volumeMounts:
     - mountPath: /var/run/docker.sock
-      name: pvc-jenkins-slave-kubernetes-maven-sock
+      name: docker-sock
   volumes:
     - name: docker-sock
       hostPath:
         path: /var/run/docker.sock
     - name: m2
       persistentVolumeClaim:
-        claimName: m2
+        claimName: pvc-jenkins-slave-kubernetes-maven-quarkus
 """
 }
    }

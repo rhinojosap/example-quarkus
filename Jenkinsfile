@@ -2,7 +2,7 @@
 
 pipeline {
   environment {
-    registry = "gcr.io/cloud-week/"
+    registry = "gcr.io/cloud-week"
     registryCredential = 'cloud-week-push-pull-registry'
   }
 
@@ -56,7 +56,7 @@ spec:
         // build our docker image
         //myImg = docker.build 'hello-image:snapshot-1'
             sh '''
-            docker build -t ${env.registry}hello-image:snapshot-${env.BUILD_ID} .
+            docker build -t $registry/hello-image:snampshot-$BUILD_NUMBER .
             '''
         }
       

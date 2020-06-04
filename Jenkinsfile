@@ -7,6 +7,9 @@ node {
         //git 'git@diyvb:repos/dockerResources.git'
 
         // build our docker image
-        myImg = docker.build 'hello-image:snapshot-1'
+        //myImg = docker.build 'hello-image:snapshot-1'
+        sh '''
+        docker build -t hello-image:snapshot-1 .
+        '''
     }
 }

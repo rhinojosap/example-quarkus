@@ -22,7 +22,7 @@ spec:
     tty: true
     volumeMounts:
       - mountPath: "/root/.m2"
-        name: m2
+        name: pvc-jenkins-slave-kubernetes-maven-quarkus
   - name: docker
     image: docker:latest
     command:
@@ -30,7 +30,7 @@ spec:
     tty: true
     volumeMounts:
     - mountPath: /var/run/docker.sock
-      name: docker-sock
+      name: pvc-jenkins-slave-kubernetes-maven-sock
   volumes:
     - name: docker-sock
       hostPath:
@@ -54,8 +54,8 @@ spec:
             docker build -t hello-image:snapshot-1 .
             '''
         }
-      }
-    }
+      
+}    }
     stage('Test') {
       steps {
         container('maven') {

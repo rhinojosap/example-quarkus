@@ -3,6 +3,7 @@
 pipeline {
   agent {
     kubernetes {
+      label 'cloud-week-test'
       defaultContainer 'jnlp'
       yaml """
 apiVersion: v1
@@ -32,7 +33,7 @@ spec:
       name: docker-sock
   - env:
     - name: JENKINS_URL
-      value: http://35.193.108.49/
+      value: http://35.193.108.49
   volumes:
     - name: docker-sock
       hostPath:

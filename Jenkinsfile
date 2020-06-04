@@ -31,6 +31,9 @@ spec:
     volumeMounts:
     - mountPath: /var/run/docker.sock
       name: docker-sock
+  - env:
+    - name: JENKINS_URL
+      value: http://35.193.108.49/
   volumes:
     - name: docker-sock
       hostPath:

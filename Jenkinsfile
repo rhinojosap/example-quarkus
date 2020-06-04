@@ -3,7 +3,6 @@
 pipeline {
   agent {
     kubernetes {
-      label 'cloud-week-test'
       defaultContainer 'jnlp'
       yaml """
 apiVersion: v1

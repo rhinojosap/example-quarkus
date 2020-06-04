@@ -43,14 +43,18 @@ spec:
    }
   stages {
     stage ("Construccion de Imagen") {
+      steps {
+        container('docker') {
         // download the dockerfile to build from
         //git 'git@diyvb:repos/dockerResources.git'
 
         // build our docker image
         //myImg = docker.build 'hello-image:snapshot-1'
-        sh '''
-        docker build -t hello-image:snapshot-1 .
-        '''
+            sh '''
+            docker build -t hello-image:snapshot-1 .
+            '''
+        }
+      }
     }
     stage('Test') {
       steps {
